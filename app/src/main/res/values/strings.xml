@@ -2,4 +2,11 @@
     <string name="app_name">Wardroba</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="accessory_types">
+    <item name="Hats" type="string">Hats</item>
+    <item name="Shirts" type="string">Shirts</item>
+    <item name="Coats" type="string">Coats</item>
+    <item name="Socks" type="string">Socks</item>
+    <item name="Shoes" type="string">Shoes</item>
+    </string-array>
 </resources>
