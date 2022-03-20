@@ -15,4 +15,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <CheckBox
+        android:id="@+id/cbWinter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Winter"
+        app:layout_constraintEnd_toStartOf="@+id/cbTransitional"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spnAccessoryType" />
+
+    <CheckBox
+        android:id="@+id/cbTransitional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transitional"
+        app:layout_constraintEnd_toStartOf="@+id/cbSummer"
+        app:layout_constraintStart_toEndOf="@+id/cbWinter"
+        app:layout_constraintTop_toBottomOf="@+id/spnAccessoryType" />
+
+    <CheckBox
+        android:id="@+id/cbSummer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Summer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cbTransitional"
+        app:layout_constraintTop_toBottomOf="@+id/spnAccessoryType" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
