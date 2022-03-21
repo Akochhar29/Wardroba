@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/recommendBtn"
             android:layout_width="225dp"
             android:layout_height="50dp"
             android:layout_marginStart="158dp"
@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/wardrobeBtn"
             android:layout_width="225dp"
             android:layout_height="50dp"
             android:layout_marginStart="93dp"
@@ -34,10 +34,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintTop_toBottomOf="@+id/recommendBtn" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/sharedBtn"
             android:layout_width="225dp"
             android:layout_height="50dp"
             android:layout_marginStart="93dp"
@@ -47,10 +47,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button7" />
+            app:layout_constraintTop_toBottomOf="@+id/wardrobeBtn" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/randomBtn"
             android:layout_width="225dp"
             android:layout_height="50dp"
             android:layout_marginStart="93dp"
@@ -62,7 +62,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button8"
+            app:layout_constraintTop_toBottomOf="@+id/sharedBtn"
             app:layout_constraintVertical_bias="0.076" />
 
         <TextView
@@ -77,7 +77,7 @@
             android:textAlignment="center"
             android:textColor="#090909"
             android:textSize="28sp"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintBottom_toTopOf="@+id/recommendBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
