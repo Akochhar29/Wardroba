@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Home">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/recommendBtn"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="158dp"
+            android:layout_marginTop="132dp"
+            android:layout_marginEnd="159dp"
+            android:text="Get Recommendations"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/wardrobeBtn"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="93dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="93dp"
+            android:text="My Wardrobe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recommendBtn" />
+
+        <Button
+            android:id="@+id/sharedBtn"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="93dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="93dp"
+            android:text="View Shared Clothes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wardrobeBtn" />
+
+        <Button
+            android:id="@+id/randomBtn"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="93dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="93dp"
+            android:layout_marginBottom="215dp"
+            android:text="Random Outfit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sharedBtn"
+            app:layout_constraintVertical_bias="0.076" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="112dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="270dp"
+            android:layout_marginBottom="77dp"
+            android:text="Home"
+            android:textAlignment="center"
+            android:textColor="#090909"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@+id/recommendBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

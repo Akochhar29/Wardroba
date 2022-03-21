@@ -9,7 +9,11 @@
         android:id="@+id/addAccessory"
         android:name="com.example.wardroba.fragments.AddAccessory"
         android:label="fragment_add_accessory"
-        tools:layout="@layout/fragment_add_accessory" />
+        tools:layout="@layout/fragment_add_accessory" >
+        <action
+            android:id="@+id/action_addAccessory_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
     <fragment
         android:id="@+id/randomOutfit"
         android:name="com.example.wardroba.fragments.RandomOutfit"
@@ -20,4 +24,33 @@
         android:name="com.example.wardroba.fragments.MyWardrobe"
         android:label="fragment_my_wardrobe"
         tools:layout="@layout/fragment_my_wardrobe" />
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.example.wardroba.fragments.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_myWardrobe"
+            app:destination="@id/myWardrobe" />
+        <action
+            android:id="@+id/action_home2_to_randomOutfit"
+            app:destination="@id/randomOutfit" />
+        <action
+            android:id="@+id/action_home2_to_recommendations"
+            app:destination="@id/recommendations" />
+    </fragment>
+    <fragment
+        android:id="@+id/landing"
+        android:name="com.example.wardroba.fragments.Landing"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing" >
+        <action
+            android:id="@+id/action_landing_to_recommendations"
+            app:destination="@id/recommendations" />
+    </fragment>
+    <fragment
+        android:id="@+id/recommendations"
+        android:name="com.example.wardroba.fragments.Recommendations"
+        android:label="fragment_recommendations"
+        tools:layout="@layout/fragment_recommendations" />
 </navigation>
