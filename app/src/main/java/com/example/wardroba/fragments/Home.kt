@@ -38,7 +38,6 @@ class Home : Fragment() {
             val action = HomeDirections.actionHome2ToRecommendations()
             findNavController().navigate(action)
         }
-
         binding.wardrobeBtn.setOnClickListener {
             val action = HomeDirections.actionHome2ToMyWardrobe()
             findNavController().navigate(action)
@@ -46,7 +45,7 @@ class Home : Fragment() {
 
         binding.randomBtn.setOnClickListener{
             val action = HomeDirections.actionHome2ToRandomOutfit()
-
+            findNavController().navigate(action)
         }
 
         binding.sharedBtn.setOnClickListener{

@@ -4,12 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/drawable/circle.xml" value="0.317" />
+        <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/drawable/round_button.xml" value="0.2125" />
         <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/layout/activity_main.xml" value="0.2692502532928065" />
         <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/layout/circle.xml" value="0.1524822695035461" />
         <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/layout/fragment_add_accessory.xml" value="0.25" />
+        <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/layout/fragment_colour_recommendations.xml" value="0.3145833333333333" />
         <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/layout/fragment_home.xml" value="0.31354166666666666" />
+        <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/layout/fragment_landing.xml" value="0.31354166666666666" />
         <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/layout/fragment_my_wardrobe.xml" value="0.2692502532928065" />
         <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/layout/fragment_random_outfit.xml" value="0.2624113475177305" />
+        <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/layout/fragment_recommendations.xml" value="0.22" />
+        <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/layout/fragment_sign_in.xml" value="0.3145833333333333" />
       </map>
     </option>
   </component>
