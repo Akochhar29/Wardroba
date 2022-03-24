@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.wardroba.R
-import com.example.wardroba.databinding.FragmentHomeBinding
 import com.example.wardroba.databinding.FragmentLandingBinding
 
 
@@ -34,10 +32,17 @@ class Landing : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.logInBtn.setOnClickListener {
+            val loginAction = LandingDirections.actionLandingToSignIn()
+            findNavController().navigate(loginAction)
+        }
+        binding.signUpBtn.setOnClickListener {
+            val signupAction = LandingDirections.actionLandingToSignUp()
+            findNavController().navigate(signupAction)
+        }
         binding.landingRcmndBtn.setOnClickListener{
-            val action = LandingDirections.actionLandingToRecommendations()
-            findNavController().navigate(action)
+            val recommendAction = LandingDirections.actionLandingToRecommendations()
+            findNavController().navigate(recommendAction)
         }
     }
 }
