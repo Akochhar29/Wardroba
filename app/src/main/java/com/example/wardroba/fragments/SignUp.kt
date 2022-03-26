@@ -1,6 +1,7 @@
 package com.example.wardroba.fragments
 
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -34,11 +35,17 @@ class SignUp : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSubmit.setOnClickListener {
-            val createdUserData = User( firstName = binding.etFirstName.text.toString(), lastName = binding.etLastName.text.toString())
-            val createdUserAuth = UserAuth(email = binding.etEmail.text.toString(),password = binding.etPass.text.toString())
-            userModel.addUser(createdUserData,createdUserAuth)
-            val action = SignUpDirections.actionSignUpToHome22()
-            findNavController().navigate(action)
+            if(!TextUtils.isEmpty(binding.etEmail.text) && android.util.Patterns.EMAIL_ADDRESS.matcher(binding.etEmail.text).matches()
+                && !TextUtils.isEmpty(binding.etFirstName.text)&& !TextUtils.isEmpty(binding.etLastName.text)&& !TextUtils.isEmpty(binding.etPass.text)
+                && binding.etPass.text.toString().equals(binding.etPassConf.text.toString())){
+
+                val createdUserData = User( firstName = binding.etFirstName.text.toString(), lastName = binding.etLastName.text.toString())
+                val createdUserAuth = UserAuth(email = binding.etEmail.text.toString(),password = binding.etPass.text.toString())
+                userModel.addUser(createdUserData,createdUserAuth)
+                val action = SignUpDirections.actionSignUpToHome22()
+                findNavController().navigate(action)
+            }
+
 
         }
     }

@@ -23,7 +23,6 @@ class UserViewModel @Inject constructor():ViewModel(){
             try{
                 auth.createUserWithEmailAndPassword(userAuth.email.toString(),userAuth.password.toString()).await()
                 db.collection("users").document(auth.uid.toString()).set(userData).await()
-
             }
             catch (e:Exception){
                 Log.d("ABC","Error occurred: ${e.message}")
