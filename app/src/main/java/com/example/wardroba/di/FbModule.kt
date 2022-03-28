@@ -19,9 +19,4 @@ object FbModule {
     fun provideFirestore():FirebaseFirestore{
         return Firebase.firestore
     }
-    @Singleton
-    @Provides
-    fun provideAuth(): FirebaseAuth{
-        return Firebase.auth
-    }
 }
