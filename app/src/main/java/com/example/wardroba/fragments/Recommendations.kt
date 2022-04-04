@@ -5,6 +5,8 @@ import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -28,18 +30,19 @@ import com.example.wardroba.databinding.FragmentHomeBinding
 import com.example.wardroba.databinding.FragmentRecommendationsBinding
 import java.io.File
 import java.io.IOException
+import java.io.OutputStream
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class Recommendations : Fragment() {
-
     private var _binding: FragmentRecommendationsBinding? = null
     private val binding get() = _binding!!
     private var imageCapture:ImageCapture? = null
     private val REQUEST_PERMISSION_CODE = 171
-    private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    private val REQUIRED_PERMISSIONS_Legacy = arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    private val REQUIRED_PERMISSIONS =  arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.MANAGE_EXTERNAL_STORAGE)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,7 +51,7 @@ class Recommendations : Fragment() {
         _binding = FragmentRecommendationsBinding.inflate(inflater, container, false)
         startCamera()
         binding.btnScan.setOnClickListener {
-
+            takePhoto()
         }
         return binding.root
     }
@@ -59,7 +62,12 @@ class Recommendations : Fragment() {
             //good to go further
             this.startCamera()
         }else{
-            ActivityCompat.requestPermissions(this.requireActivity(), REQUIRED_PERMISSIONS, REQUEST_PERMISSION_CODE)
+            if(Build.VERSION.SDK_INT >= 32){
+                ActivityCompat.requestPermissions(this.requireActivity(), REQUIRED_PERMISSIONS, REQUEST_PERMISSION_CODE)
+            }else{
+                ActivityCompat.requestPermissions(this.requireActivity(), REQUIRED_PERMISSIONS_Legacy, REQUEST_PERMISSION_CODE)
+            }
+
         }
     }
     override fun onDestroyView() {
@@ -131,8 +139,8 @@ class Recommendations : Fragment() {
 //                        currentUser.profileImg = pictureURI.toString()
 //                        viewModel.updateGuest2(currentUser)
 
-                        this@Recommendations.saveToExternalStorage(pictureURI)
-                        this@Recommendations.findNavController().navigateUp()
+                        saveToExternalStorage(pictureURI)
+                        //findNavController()
                     }
 
 
