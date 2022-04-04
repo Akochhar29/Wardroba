@@ -13,7 +13,9 @@
         <androidx.camera.view.PreviewView
             android:id="@+id/preview_view_Container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="35dp"
+            tools:layout_editor_absoluteY="2dp" />
 
         <Button
             android:id="@+id/btnScan"
@@ -22,7 +24,7 @@
             android:layout_marginStart="133dp"
             android:layout_marginTop="76dp"
             android:layout_marginEnd="134dp"
-            android:layout_marginBottom="124dp"
+            android:layout_marginBottom="240dp"
             android:text="Scan"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

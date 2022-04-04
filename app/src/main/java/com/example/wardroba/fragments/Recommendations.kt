@@ -62,7 +62,7 @@ class Recommendations : Fragment() {
             //good to go further
             this.startCamera()
         }else{
-            if(Build.VERSION.SDK_INT >= 32){
+            if(Build.VERSION.SDK_INT >= 31){
                 ActivityCompat.requestPermissions(this.requireActivity(), REQUIRED_PERMISSIONS, REQUEST_PERMISSION_CODE)
             }else{
                 ActivityCompat.requestPermissions(this.requireActivity(), REQUIRED_PERMISSIONS_Legacy, REQUEST_PERMISSION_CODE)
@@ -80,8 +80,6 @@ class Recommendations : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnScan.setOnClickListener {
             takePhoto()
-//            val action = RecommendationsDirections.actionRecommendationsToColourRecommendations()
-//            findNavController().navigate(action)
         }
 
     }
@@ -114,7 +112,7 @@ class Recommendations : Fragment() {
     private fun takePhoto(){
 
         if (this.imageCapture != null){
-            Toast.makeText(this.requireContext() , "Taking Picture Success" , Toast.LENGTH_SHORT).show()
+            Toast.makeText(this.requireContext() , "Picture Taken Successfully" , Toast.LENGTH_SHORT).show()
             val outputDirectory = getOutputDirectory()
             val filename = "Wardroba_" + SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.CANADA).format(System.currentTimeMillis()) + ".jpeg"
             val pictureFile = File(outputDirectory, filename)
@@ -132,15 +130,16 @@ class Recommendations : Fragment() {
 
                     override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                         val pictureURI = Uri.fromFile(pictureFile)
-                        //Log.e("ABC", "Image successfully saved at ${pictureURI}")
-                        //this@CameraFragment.requireActivity().imgProfilePic.setImageURI(pictureURI)
+                        Log.e("ABC", "Image successfully saved at ${pictureURI}")
+                        //this@Recommendations.requireActivity().imgProfilePic.setImageURI(pictureURI)
 
-//                        //SAVE THE USER IMAGE IN THE DB
+                        //SAVE THE USER IMAGE IN THE DB
 //                        currentUser.profileImg = pictureURI.toString()
 //                        viewModel.updateGuest2(currentUser)
 
-                        saveToExternalStorage(pictureURI)
-                        //findNavController()
+                        this@Recommendations.saveToExternalStorage(pictureURI)
+                        val action = RecommendationsDirections.actionRecommendationsToColourRecommendations()
+                        findNavController().navigate(action)
                     }
 
 
