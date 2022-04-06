@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Coding/Android/Wardroba/app/src/main/res/drawable/round_button.xml" value="0.314" />
         <entry key="..\:/Coding/Android/Wardroba/app/src/main/res/layout/fragment_colour_recommendations.xml" value="0.55" />
+        <entry key="..\:/Coding/Android/Wardroba/app/src/main/res/layout/fragment_recommendations.xml" value="0.3109375" />
+        <entry key="..\:/Coding/Android/Wardroba/app/src/main/res/layout/fragment_sign_in.xml" value="0.55" />
+        <entry key="..\:/Coding/Android/Wardroba/app/src/main/res/layout/fragment_sign_up.xml" value="0.55" />
         <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/drawable/circle.xml" value="0.317" />
         <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/drawable/round_button.xml" value="0.2125" />
         <entry key="..\:/Semesters/Sixth Sem/Software Engineering/Wardroba/Android Project/app/src/main/res/layout/activity_main.xml" value="0.2692502532928065" />
