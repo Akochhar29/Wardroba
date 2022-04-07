@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.os.Build.VERSION.SDK_INT
@@ -25,6 +26,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
+import androidx.palette.graphics.Palette
 import com.example.wardroba.R
 import com.example.wardroba.databinding.FragmentHomeBinding
 import com.example.wardroba.databinding.FragmentRecommendationsBinding
@@ -137,6 +139,10 @@ class Recommendations : Fragment() {
 //                        currentUser.profileImg = pictureURI.toString()
 //                        viewModel.updateGuest2(currentUser)
 
+                        //get dominant colour
+                        val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(context!!.getContentResolver(), pictureURI)
+                        val clothingColour = getMainColour(bitmap)
+
                         this@Recommendations.saveToExternalStorage(pictureURI)
                         val action = RecommendationsDirections.actionRecommendationsToColourRecommendations()
                         findNavController().navigate(action)
@@ -180,5 +186,14 @@ class Recommendations : Fragment() {
         }
 
         return if (mediaDir != null && mediaDir.exists()) mediaDir else this.requireActivity().filesDir
+    }
+
+    private fun getMainColour(bitmap: Bitmap): Int {
+        var colour = R.color.black
+        Palette.from(bitmap).generate() { palette ->
+            colour =
+                palette?.getDominantColor(ContextCompat.getColor(requireContext(), R.color.black))!!
+        }
+        return colour
     }
 }
