@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Recommendations">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/preview_view_Container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="35dp"
+            tools:layout_editor_absoluteY="2dp" />
+
+        <Button
+            android:id="@+id/btnScan"
+            android:layout_width="144dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="133dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="134dp"
+            android:layout_marginBottom="240dp"
+            android:text="Scan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/preview_view_Container" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

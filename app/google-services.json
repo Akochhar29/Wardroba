@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "644308055649",
+    "project_id": "wardroba-98746",
+    "storage_bucket": "wardroba-98746.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644308055649:android:d3159ae67e40d66d4bdc20",
+        "android_client_info": {
+          "package_name": "com.example.wardroba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644308055649-gufjrag2suc62aojsq28tbr1rqgve4p1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY2nEWbPqRXhsJyM6dL6EKW8Cqfz8uTG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "644308055649-gufjrag2suc62aojsq28tbr1rqgve4p1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

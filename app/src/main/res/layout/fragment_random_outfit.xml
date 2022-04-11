@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.RandomOutfit">
+
+    <TextView
+        android:layout_marginTop="64dp"
+        android:id="@+id/tvHat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hat"
+        app:layout_constraintEnd_toStartOf="@+id/tvHatColour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:layout_marginTop="64dp"
+        android:id="@+id/tvHatColour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="                   "
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvHat"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvCoat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coat"
+        app:layout_constraintEnd_toStartOf="@+id/tvCoatColour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHat"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvCoatColour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="                   "
+        android:background="@color/teal_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvCoat"
+        app:layout_constraintTop_toBottomOf="@+id/tvHatColour"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvShirt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shirt"
+        app:layout_constraintEnd_toStartOf="@+id/tvShirtColour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCoat"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvShirtColour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="                   "
+        android:background="@color/purple_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvShirt"
+        app:layout_constraintTop_toBottomOf="@+id/tvCoatColour"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvSocks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Socks"
+        app:layout_constraintEnd_toStartOf="@+id/tvSocksColour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvShirt"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvSocksColour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="                   "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvSocks"
+        app:layout_constraintTop_toBottomOf="@+id/tvShirtColour"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvShoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shoes"
+        app:layout_constraintEnd_toStartOf="@+id/tvShoesColour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSocks"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvShoesColour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="                   "
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvShoes"
+        app:layout_constraintTop_toBottomOf="@+id/tvSocksColour"
+        android:layout_marginTop="16dp"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btnGenerate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"
+        >
+
+        <RadioButton
+            android:id="@+id/rdSummer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Summer"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="294dp" />
+
+        <RadioButton
+            android:id="@+id/rdTransitional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transitional"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="294dp" />
+
+        <RadioButton
+            android:id="@+id/rdWinter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Winter"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="294dp" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnGenerate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Generate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="16dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

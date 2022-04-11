@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/landing">
+
+    <fragment
+        android:id="@+id/addAccessory"
+        android:name="com.example.wardroba.fragments.AddAccessory"
+        android:label="fragment_add_accessory"
+        tools:layout="@layout/fragment_add_accessory" >
+        <action
+            android:id="@+id/action_addAccessory_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/randomOutfit"
+        android:name="com.example.wardroba.fragments.RandomOutfit"
+        android:label="fragment_random_outfit"
+        tools:layout="@layout/fragment_random_outfit" />
+    <fragment
+        android:id="@+id/myWardrobe"
+        android:name="com.example.wardroba.fragments.MyWardrobe"
+        android:label="fragment_my_wardrobe"
+        tools:layout="@layout/fragment_my_wardrobe" />
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.example.wardroba.fragments.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_myWardrobe"
+            app:destination="@id/myWardrobe" />
+        <action
+            android:id="@+id/action_home2_to_randomOutfit"
+            app:destination="@id/randomOutfit" />
+        <action
+            android:id="@+id/action_home2_to_recommendations"
+            app:destination="@id/recommendations" />
+    </fragment>
+    <fragment
+        android:id="@+id/landing"
+        android:name="com.example.wardroba.fragments.Landing"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing" >
+        <action
+            android:id="@+id/action_landing_to_recommendations"
+            app:destination="@id/recommendations" />
+        <action
+            android:id="@+id/action_landing_to_signUp"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_landing_to_signIn"
+            app:destination="@id/signIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/recommendations"
+        android:name="com.example.wardroba.fragments.Recommendations"
+        android:label="fragment_recommendations"
+        tools:layout="@layout/fragment_recommendations" >
+        <action
+            android:id="@+id/action_recommendations_to_colourRecommendations"
+            app:destination="@id/colourRecommendations" />
+    </fragment>
+    <fragment
+        android:id="@+id/colourRecommendations"
+        android:name="com.example.wardroba.fragments.ColourRecommendations"
+        android:label="fragment_colour_recommendations"
+        tools:layout="@layout/fragment_colour_recommendations" />
+    <fragment
+        android:id="@+id/signIn"
+        android:name="com.example.wardroba.fragments.SignIn"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signIn_to_home22"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.example.wardroba.fragments.SignUp"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUp_to_home22"
+            app:destination="@id/home2" />
+    </fragment>
+</navigation>
