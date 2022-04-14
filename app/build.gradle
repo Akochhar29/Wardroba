@@ -83,4 +83,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
 
     implementation 'androidx.palette:palette:1.0.0'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0"
 }
