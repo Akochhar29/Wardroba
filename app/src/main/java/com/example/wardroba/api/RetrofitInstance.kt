@@ -1,11 +1,16 @@
 package com.example.wardroba.api
 
-import com.squareup.okhttp.OkHttpClient
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 
-/*object RetrofitInstance {
+object RetrofitInstance {
 
     // When using the emulator, localhost = 10.0.2.2
-    private const val BASE_URL:String = "https://jsonplaceholder.typicode.com" // https://sightengine.com/docs/color-detection#use-model
+    private const val BASE_URL:String = "https://www.thecolorapi.com/id?"
 
     // setup a client with logging
     private val httpClient = OkHttpClient.Builder()
@@ -29,8 +34,8 @@ import com.squareup.okhttp.OkHttpClient
         .client(httpClient)
         .build()
 
-    val retrofitService: GameAPI by lazy {
-        retrofit.create(GameAPI::class.java)
+    val retrofitService: ColourMatchesAPI by lazy {
+        retrofit.create(ColourMatchesAPI::class.java)
     }
 
-}*/
+}
