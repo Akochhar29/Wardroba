@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.wardroba.models.Accessory
 import com.example.wardroba.models.UserAuth
 import com.example.wardroba.models.User
 import com.google.firebase.auth.FirebaseAuth
@@ -51,5 +52,15 @@ class UserViewModel @Inject constructor():ViewModel() {
                     Log.w("ABC", "createUserWithEmail:failure", task.exception)
                 }
             }
+    }
+    fun storeAccessory(accessory:Accessory) {
+
+        viewModelScope.launch {
+            try {
+                db.collection("accessories").document(auth.uid.toString()).set(accessory).await()
+            } catch (e: Exception) {
+                Log.d("ABC", "Error occurred: ${e.message}")
+            }
+        }
     }
 }

@@ -62,7 +62,7 @@ class ColourRecommendations : Fragment() {
                 findNavController().navigate(action)
             }
             else{
-                val action = ColourRecommendationsDirections.actionColourRecommendationsToAddAccessory()
+                val action = ColourRecommendationsDirections.actionColourRecommendationsToAddAccessory(args.clothingColour)
                 findNavController().navigate(action)
             }
         }

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_addAccessory_to_home2"
             app:destination="@id/home2" />
+        <argument
+            android:name="clothingColour"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/randomOutfit"
