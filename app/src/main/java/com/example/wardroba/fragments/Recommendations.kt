@@ -140,7 +140,7 @@ class Recommendations : Fragment() {
 
                         //get dominant colour
                         val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(context!!.getContentResolver(), pictureURI)
-                        //val clothingColour = getMainColour(bitmap)
+                        val clothingColour = getMainColour(bitmap)
                         var hex = "#"+ clothingColour?.let { Integer.toHexString(it).substring(2) };
 
 
