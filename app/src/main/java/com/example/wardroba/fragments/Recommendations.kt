@@ -140,7 +140,7 @@ class Recommendations : Fragment() {
 
                         //get dominant colour
                         val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(context!!.getContentResolver(), pictureURI)
-                        val clothingColour = getMainColour(bitmap)
+                        //val clothingColour = getMainColour(bitmap)
                         var hex = "#"+ clothingColour?.let { Integer.toHexString(it).substring(2) };
 
 
@@ -206,5 +206,14 @@ class Recommendations : Fragment() {
         return createPaletteSync(bitmap).vibrantSwatch?.rgb
 
     }
+
+//    fun createPaletteAsync(bitmap: Bitmap) : Int? {
+//        var color = R.color.black
+//        Palette.from(bitmap).generate { palette ->
+//
+//            color = palette?.vibrantSwatch?.rgb!!
+//        }
+//        return color
+//    }
 
 }
