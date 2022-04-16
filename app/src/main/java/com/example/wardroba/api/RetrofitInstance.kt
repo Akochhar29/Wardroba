@@ -10,7 +10,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object RetrofitInstance {
 
     // When using the emulator, localhost = 10.0.2.2
-    private const val BASE_URL:String = "https://www.thecolorapi.com/id?"
+    private const val BASE_URL:String = "https://www.thecolorapi.com"
 
     // setup a client with logging
     private val httpClient = OkHttpClient.Builder()
