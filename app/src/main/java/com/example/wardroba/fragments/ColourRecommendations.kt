@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListAdapter
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.wardroba.R
 import com.example.wardroba.databinding.FragmentColourRecommendationsBinding
@@ -45,6 +46,16 @@ class ColourRecommendations : Fragment() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             // Apply the adapter to the spinner
             binding.spnClothingType.adapter = adapter
+        }
+
+        binding.btnDiscard.setOnClickListener{
+            val action = ColourRecommendationsDirections.actionColourRecommendationsToRecommendations()
+            findNavController().navigate(action)
+
+        }
+
+        binding.btnSave.setOnClickListener{
+
         }
 
 

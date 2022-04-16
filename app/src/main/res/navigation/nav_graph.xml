@@ -71,6 +71,9 @@
         <argument
             android:name="clothingColour"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_colourRecommendations_to_recommendations"
+            app:destination="@id/recommendations" />
     </fragment>
     <fragment
         android:id="@+id/signIn"
