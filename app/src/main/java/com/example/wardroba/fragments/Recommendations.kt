@@ -5,9 +5,9 @@ import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
-import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -24,15 +24,12 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import androidx.palette.graphics.Palette
 import com.example.wardroba.R
-import com.example.wardroba.databinding.FragmentHomeBinding
 import com.example.wardroba.databinding.FragmentRecommendationsBinding
 import java.io.File
 import java.io.IOException
-import java.io.OutputStream
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
@@ -118,6 +115,7 @@ class Recommendations : Fragment() {
             val outputDirectory = getOutputDirectory()
             val filename = "Wardroba_" + SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.CANADA).format(System.currentTimeMillis()) + ".jpeg"
             val pictureFile = File(outputDirectory, filename)
+
             val outputOptions  = ImageCapture.OutputFileOptions.Builder(pictureFile).build()
             Log.e("output option " ,outputOptions.toString() )
 
@@ -132,6 +130,7 @@ class Recommendations : Fragment() {
 
                     override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                         val pictureURI = Uri.fromFile(pictureFile)
+
                         Log.e("ABC", "Image successfully saved at ${pictureURI}")
                         //this@Recommendations.requireActivity().imgProfilePic.setImageURI(pictureURI)
 
@@ -142,6 +141,8 @@ class Recommendations : Fragment() {
                         //get dominant colour
                         val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(context!!.getContentResolver(), pictureURI)
                         val clothingColour = getMainColour(bitmap)
+                        var hex = "#"+ clothingColour?.let { Integer.toHexString(it).substring(2) };
+
 
                         this@Recommendations.saveToExternalStorage(pictureURI)
                         val action = RecommendationsDirections.actionRecommendationsToColourRecommendations()
@@ -188,12 +189,22 @@ class Recommendations : Fragment() {
         return if (mediaDir != null && mediaDir.exists()) mediaDir else this.requireActivity().filesDir
     }
 
-    private fun getMainColour(bitmap: Bitmap): Int {
-        var colour = R.color.black
-        Palette.from(bitmap).generate() { palette ->
-            colour =
-                palette?.getDominantColor(ContextCompat.getColor(requireContext(), R.color.black))!!
-        }
-        return colour
+//    private fun getMainColour(bitmap: Bitmap): Int {
+//        var colour = R.color.black
+//        Palette.from(bitmap).generate() { palette ->
+//            colour =
+//                palette?.getDominantColor(ContextCompat.getColor(requireContext(), R.color.black))!!
+//        }
+//        return colour
+//    }
+
+
+    private fun createPaletteSync(bitmap: Bitmap): Palette = Palette.from(bitmap).generate()
+
+    fun getMainColour(bitmap: Bitmap): Int? {
+
+        return createPaletteSync(bitmap).vibrantSwatch?.rgb
+
     }
+
 }
