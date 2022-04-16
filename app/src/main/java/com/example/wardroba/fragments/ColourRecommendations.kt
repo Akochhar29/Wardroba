@@ -71,8 +71,9 @@ class ColourRecommendations() : Fragment() {
             if (i < colourShowcaseButtons.size) {
                 colourShowcaseButtons[i].setBackgroundColor(colourList[i].toInt())
                 colourShowcaseButtons[i].isVisible = true
+            } else {
+                colourShowcaseButtons[i].isVisible = false
             }
-            colourShowcaseButtons[i].isVisible = false
         }
     }
 
