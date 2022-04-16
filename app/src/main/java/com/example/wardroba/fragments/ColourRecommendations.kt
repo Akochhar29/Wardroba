@@ -12,6 +12,7 @@ import android.widget.Button
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.wardroba.R
 import com.example.wardroba.api.RetrofitInstance
 import com.example.wardroba.databinding.FragmentColourRecommendationsBinding
@@ -66,6 +67,10 @@ class ColourRecommendations() : Fragment() {
                 }
             }
         }
+
+        binding.btnDiscard.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun showcaseColours(colourList: List<Colour>) {
@@ -86,6 +91,7 @@ class ColourRecommendations() : Fragment() {
             "(" + colour.r.toString() + ", " + colour.g.toString() + ", " + colour.b.toString() + ")"
         binding.btnNotAButton.setBackgroundColor(colour.toInt())
         binding.btnNotAButton.visibility = View.VISIBLE
+        model.chosenColour = colour
     }
 
 }
