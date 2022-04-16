@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Wardroba.iml" filepath="$PROJECT_DIR$/.idea/Wardroba.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Wardroba.iml" filepath="$PROJECT_DIR$/.idea/modules/Wardroba.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Wardroba.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Wardroba.app.iml" />
     </modules>
   </component>

@@ -5,14 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.wardroba.databinding.FragmentLandingBinding
+import com.example.wardroba.vms.UserViewModel
 
 
 class Landing : Fragment() {
     private var _binding: FragmentLandingBinding? = null
     private val binding get() = _binding!!
-
+    private val userModel: UserViewModel by viewModels()
 
 
 
@@ -21,6 +23,7 @@ class Landing : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentLandingBinding.inflate(inflater, container, false)
+        userModel.auth.signOut()
         return binding.root
     }
 

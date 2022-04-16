@@ -74,6 +74,12 @@
         <action
             android:id="@+id/action_colourRecommendations_to_recommendations"
             app:destination="@id/recommendations" />
+        <action
+            android:id="@+id/action_colourRecommendations_to_addAccessory"
+            app:destination="@id/addAccessory" />
+        <action
+            android:id="@+id/action_colourRecommendations_to_signIn"
+            app:destination="@id/signIn" />
     </fragment>
     <fragment
         android:id="@+id/signIn"

@@ -7,18 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListAdapter
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.wardroba.R
 import com.example.wardroba.databinding.FragmentColourRecommendationsBinding
 import com.example.wardroba.databinding.FragmentHomeBinding
+import com.example.wardroba.vms.UserViewModel
 
 class ColourRecommendations : Fragment() {
     private var _binding: FragmentColourRecommendationsBinding? = null
     private val binding get() = _binding!!
     private val clothingTypes = listOf<String>("Pants", "Top", "Skirt", "Hat")
     val args:ColourRecommendationsArgs by navArgs()
-
+    private val userModel: UserViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,7 +57,14 @@ class ColourRecommendations : Fragment() {
         }
 
         binding.btnSave.setOnClickListener{
-
+            if(userModel.auth.currentUser == null){
+                val action = ColourRecommendationsDirections.actionColourRecommendationsToSignIn()
+                findNavController().navigate(action)
+            }
+            else{
+                val action = ColourRecommendationsDirections.actionColourRecommendationsToAddAccessory()
+                findNavController().navigate(action)
+            }
         }
 
 
