@@ -1,5 +1,6 @@
 package com.example.wardroba.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
@@ -7,16 +8,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.example.wardroba.R
+import com.example.wardroba.api.RetrofitInstance
 import com.example.wardroba.databinding.FragmentColourRecommendationsBinding
 import com.example.wardroba.databinding.FragmentHomeBinding
+import com.example.wardroba.databinding.FragmentRecommendationsBinding
+import com.example.wardroba.models.Colour
+import com.example.wardroba.vms.ColourRecommendations.ColourRecommendationsViewModel
+import com.example.wardroba.vms.ColourRecommendations.ColourRecommendationsViewModelFactory
 
-class ColourRecommendations() : Fragment(), Parcelable {
+class ColourRecommendations() : Fragment() {
     private var _binding: FragmentColourRecommendationsBinding? = null
     private val binding get() = _binding!!
+    private var colourShowcaseButtons = listOf<Button>()
 
-    constructor(parcel: Parcel) : this() {
-
+    private val model: ColourRecommendationsViewModel by viewModels {
+        ColourRecommendationsViewModelFactory(RetrofitInstance.retrofitService)
     }
 
     override fun onCreateView(
@@ -32,25 +43,46 @@ class ColourRecommendations() : Fragment(), Parcelable {
         _binding = null
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        model.getMatchingColours(Colour(255,0,0))
+
+        val coloursListObserver = Observer<List<Colour>> { colours ->
+            showcaseColours(colours)
+        }
+        model.coloursList.observe(this, coloursListObserver)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-    }
+        colourShowcaseButtons = listOf(binding.btnColour1, binding.btnColour2, binding.btnColour3, binding.btnColour4, binding.btnColour5)
 
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<ColourRecommendations> {
-        override fun createFromParcel(parcel: Parcel): ColourRecommendations {
-            return ColourRecommendations(parcel)
-        }
-
-        override fun newArray(size: Int): Array<ColourRecommendations?> {
-            return arrayOfNulls(size)
+        for (i in colourShowcaseButtons.indices) {
+            colourShowcaseButtons[i].setOnClickListener {
+                if (model.coloursList.value!!.size > i) {
+                    updateSelectedColour(model.coloursList.value!![i])
+                }
+            }
         }
     }
+
+    private fun showcaseColours(colourList: List<Colour>) {
+        for (i in colourList.indices) {
+            if (i < colourShowcaseButtons.size) {
+                colourShowcaseButtons[i].setBackgroundColor(colourList[i].toInt())
+                colourShowcaseButtons[i].isVisible = true
+            }
+            colourShowcaseButtons[i].isVisible = false
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    fun updateSelectedColour(colour: Colour) {
+        binding.tvColourName.text = colour.name
+        binding.tvValues.text =
+            "(" + colour.r.toString() + ", " + colour.g.toString() + ", " + colour.b.toString() + ")"
+        binding.btnNotAButton.setBackgroundColor(colour.toInt())
+        binding.btnNotAButton.isVisible = true
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.wardroba.vms.ColourRecommendations
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.wardroba.api.ColourMatches
@@ -10,8 +11,8 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 
 class ColourRecommendationsViewModel(private val api: ColourMatchesAPI): ViewModel() {
-    var colourMatches: ColourMatches? = null
-    var colours: MutableList<Colour> = mutableListOf()
+    private var colourMatches: ColourMatches? = null
+    var coloursList = MutableLiveData<MutableList<Colour>>(mutableListOf())
     var chosenColour: Colour? = null
 
     fun getMatchingColours(colourToMatch:Colour){
@@ -19,15 +20,16 @@ class ColourRecommendationsViewModel(private val api: ColourMatchesAPI): ViewMod
             try {
                 val rgb = colourToMatch.r.toString() + "," + colourToMatch.g.toString() + "," + colourToMatch.b.toString()
                 colourMatches = api.getMatches(rgb)
+                colourConversion()
             } catch (e: Exception) {
                 Log.d("ABC", "Error occured: ${e.message}")
             }
         }
     }
 
-    fun colourConversion() {
+    private fun colourConversion() {
         for (colour in colourMatches!!.colors) {
-            colours.add(Colour(colour.rgb.r, colour.rgb.g, colour.rgb.b, colour.name.value))
+            coloursList.value?.add(Colour(colour.rgb.r, colour.rgb.g, colour.rgb.b, colour.name.value))
         }
     }
 }
