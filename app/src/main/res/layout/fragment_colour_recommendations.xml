@@ -8,7 +8,7 @@
     tools:context=".fragments.ColourRecommendations" >
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/btnMainColour"
         android:layout_width="360dp"
         android:layout_height="360dp"
         android:layout_marginHorizontal="8dp"
@@ -22,6 +22,16 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Spinner
+        android:id="@+id/spnClothingType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvClothing" />
 
     <TextView
         android:id="@+id/textView2"
@@ -39,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="32dp"
-        android:text="Button"
+        android:text="save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -49,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:text="Button"
+        android:text="discard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -66,7 +76,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/btnComp1"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginHorizontal="8dp"
@@ -75,7 +85,7 @@
             android:textColor="#fff" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnComp2"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginHorizontal="8dp"
@@ -84,7 +94,7 @@
             android:textColor="#fff" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnComp3"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginHorizontal="8dp"
@@ -93,7 +103,7 @@
             android:textColor="#fff" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btnComp4"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginHorizontal="8dp"
@@ -102,7 +112,7 @@
             android:textColor="#fff" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/btnComp5"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginHorizontal="8dp"
@@ -112,7 +122,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvComp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -120,5 +130,17 @@
         android:text="Complementary Colours"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvClothing"
+        android:layout_width="157dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="238dp"
+        android:text="Type of Clothing:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMainColour" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -145,8 +145,14 @@ class Recommendations : Fragment() {
 
 
                         this@Recommendations.saveToExternalStorage(pictureURI)
-                        val action = RecommendationsDirections.actionRecommendationsToColourRecommendations()
-                        findNavController().navigate(action)
+                        val action = clothingColour?.let {
+                            RecommendationsDirections.actionRecommendationsToColourRecommendations(
+                                it
+                            )
+                        }
+                        if (action != null) {
+                            findNavController().navigate(action)
+                        }
                     }
 
 

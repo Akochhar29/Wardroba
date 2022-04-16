@@ -67,7 +67,11 @@
         android:id="@+id/colourRecommendations"
         android:name="com.example.wardroba.fragments.ColourRecommendations"
         android:label="fragment_colour_recommendations"
-        tools:layout="@layout/fragment_colour_recommendations" />
+        tools:layout="@layout/fragment_colour_recommendations" >
+        <argument
+            android:name="clothingColour"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/signIn"
         android:name="com.example.wardroba.fragments.SignIn"
