@@ -47,17 +47,19 @@ class ColourRecommendations() : Fragment() {
         super.onCreate(savedInstanceState)
         model.getMatchingColours(Colour(255,0,0))
 
-        val coloursListObserver = Observer<List<Colour>> { colours ->
-            showcaseColours(colours)
+        val haveColourObserver = Observer<Boolean> { _ ->
+            showcaseColours(model.coloursList.value!!.toList())
         }
-        model.coloursList.observe(this, coloursListObserver)
+        model.haveColours.observe(this, haveColourObserver)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnNotAButton.visibility = View.INVISIBLE
         colourShowcaseButtons = listOf(binding.btnColour1, binding.btnColour2, binding.btnColour3, binding.btnColour4, binding.btnColour5)
 
         for (i in colourShowcaseButtons.indices) {
+            colourShowcaseButtons[i].visibility = View.INVISIBLE
             colourShowcaseButtons[i].setOnClickListener {
                 if (model.coloursList.value!!.size > i) {
                     updateSelectedColour(model.coloursList.value!![i])
@@ -70,9 +72,9 @@ class ColourRecommendations() : Fragment() {
         for (i in colourList.indices) {
             if (i < colourShowcaseButtons.size) {
                 colourShowcaseButtons[i].setBackgroundColor(colourList[i].toInt())
-                colourShowcaseButtons[i].isVisible = true
+                colourShowcaseButtons[i].visibility = View.VISIBLE
             } else {
-                colourShowcaseButtons[i].isVisible = false
+                colourShowcaseButtons[i].visibility = View.INVISIBLE
             }
         }
     }
@@ -83,7 +85,7 @@ class ColourRecommendations() : Fragment() {
         binding.tvValues.text =
             "(" + colour.r.toString() + ", " + colour.g.toString() + ", " + colour.b.toString() + ")"
         binding.btnNotAButton.setBackgroundColor(colour.toInt())
-        binding.btnNotAButton.isVisible = true
+        binding.btnNotAButton.visibility = View.VISIBLE
     }
 
 }

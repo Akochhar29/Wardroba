@@ -13,6 +13,7 @@ import java.lang.Exception
 class ColourRecommendationsViewModel(private val api: ColourMatchesAPI): ViewModel() {
     private var colourMatches: ColourMatches? = null
     var coloursList = MutableLiveData<MutableList<Colour>>(mutableListOf())
+    var haveColours = MutableLiveData<Boolean>(false)
     var chosenColour: Colour? = null
 
     fun getMatchingColours(colourToMatch:Colour){
@@ -31,5 +32,6 @@ class ColourRecommendationsViewModel(private val api: ColourMatchesAPI): ViewMod
         for (colour in colourMatches!!.colors) {
             coloursList.value?.add(Colour(colour.rgb.r, colour.rgb.g, colour.rgb.b, colour.name.value))
         }
+        haveColours.value = true
     }
 }
