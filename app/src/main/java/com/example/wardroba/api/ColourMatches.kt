@@ -1,7 +1,5 @@
 package com.example.wardroba.api
-import kotlinx.serialization.*
 
-@Serializable
 data class ColourMatches(
     val mode: String,
     val count: String,

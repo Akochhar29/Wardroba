@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Coding/Android/Wardroba/app/src/main/res/drawable/ic_launcher_background.xml" value="0.415" />
         <entry key="..\:/Coding/Android/Wardroba/app/src/main/res/drawable/round_button.xml" value="0.314" />
         <entry key="..\:/Coding/Android/Wardroba/app/src/main/res/layout/fragment_colour_recommendations.xml" value="0.55" />
         <entry key="..\:/Coding/Android/Wardroba/app/src/main/res/layout/fragment_recommendations.xml" value="0.3109375" />
