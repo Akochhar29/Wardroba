@@ -211,7 +211,7 @@ class Recommendations : Fragment() {
 
     fun getMainColour(bitmap: Bitmap): Int? {
 
-        return createPaletteSync(bitmap).vibrantSwatch?.rgb
+        return createPaletteSync(bitmap).dominantSwatch?.rgb
 
     }
 
