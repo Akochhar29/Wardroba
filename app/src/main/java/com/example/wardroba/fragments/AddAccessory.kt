@@ -41,7 +41,7 @@ class AddAccessory : Fragment() {
             binding.spnAccessoryType.adapter = adapter
         }
         binding.btnAdd.setOnClickListener {
-            userModel.storeAccessory(Accessory(args.clothingColour,binding.spnAccessoryType.selectedItem.toString(),getSeasons()))
+            userModel.storeAccessory(Accessory(colour = args.clothingColour,type = binding.spnAccessoryType.selectedItem.toString(), seasons =  getSeasons(), foreignKey =  userModel.auth.uid.toString()))
             val action = AddAccessoryDirections.actionAddAccessoryToHome2()
             findNavController().navigate(action)
         }
