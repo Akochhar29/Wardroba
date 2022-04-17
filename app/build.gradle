@@ -88,8 +88,12 @@ dependencies {
 
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0"
 
+    // retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    // moshi
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
-    implementation 'com.squareup.moshi:moshi-kotlin:1.9.3'
+    // moshi annotation processor for kotlin
+    implementation 'com.squareup.moshi:moshi-kotlin:1.11.0'
+    // optional library to debug Retrofit’s http requests/responses
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
 }

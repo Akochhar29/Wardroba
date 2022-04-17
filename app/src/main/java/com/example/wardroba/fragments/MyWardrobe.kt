@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.fragment.app.activityViewModels
 import com.example.wardroba.R
 import com.example.wardroba.databinding.FragmentMyWardrobeBinding
+import com.example.wardroba.vms.UserViewModel
 
 
 class MyWardrobe : Fragment() {
+    private val userModel: UserViewModel by activityViewModels<UserViewModel>()
     private var _binding: FragmentMyWardrobeBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(

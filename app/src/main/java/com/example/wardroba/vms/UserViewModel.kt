@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -57,10 +58,27 @@ class UserViewModel @Inject constructor():ViewModel() {
 
         viewModelScope.launch {
             try {
-                db.collection("accessories").document(auth.uid.toString()).set(accessory).await()
+                db.collection("accessories").document().set(accessory).await()
             } catch (e: Exception) {
                 Log.d("ABC", "Error occurred: ${e.message}")
             }
         }
+    }
+    fun getAccessories():List<Accessory>{
+        val accessories = mutableListOf<Accessory>()
+        viewModelScope.launch {
+         try{
+             val data = db.collection("accessories").get().await()
+             val converted = data.toObjects<Accessory>()
+             converted.forEach { entry ->
+                 if (auth.currentUser?.uid == entry.id){
+                     accessories.add(entry)
+                 }
+             }
+         }catch (e:Exception){
+             Log.d("ABC", "Error occurred: ${e.message}")
+         }
+        }
+        return accessories
     }
 }
