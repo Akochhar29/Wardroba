@@ -3,6 +3,7 @@ package com.example.wardroba.fragments
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,7 +51,7 @@ class ColourRecommendations() : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val c: Color = Color.valueOf(args.clothingColour)
-        model.getMatchingColours(Colour(c.red().toInt(),c.green().toInt(),c.blue().toInt()))
+        model.getMatchingColours(Colour((c.red() * 255).toInt() ,(c.green() * 255).toInt(),(c.blue() * 255).toInt()))
 
         val haveColourObserver = Observer<Boolean> { _ ->
             showcaseColours(model.coloursList.value!!.toList())
